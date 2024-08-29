@@ -12,6 +12,9 @@ on:
         required: false
         default: openssl-3.3.0
 
+permissions:
+  contents: read
+
 jobs:
   build:
     strategy:
@@ -20,7 +23,12 @@ jobs:
         os: [ubuntu-20.04, macos-12, windows-2019]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v4
+      - name: Harden Runner
+        uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde # v2.9.1
+        with:
+          egress-policy: audit
+
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
         with:
           repository: google/ripunzip
           ref: ${{ inputs.ripunzip-version }}
@@ -28,7 +36,7 @@ jobs:
       # see https://github.com/sfackler/rust-openssl/issues/183
       - if: runner.os == 'Linux'
         name: checkout openssl
-        uses: actions/checkout@v4
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
         with:
           repository: openssl/openssl
           path: openssl
@@ -64,7 +72,7 @@ jobs:
           lipo -create -output ripunzip-macos \
             -arch x86_64 target/x86_64-apple-darwin/release/ripunzip \
             -arch arm64 target/aarch64-apple-darwin/release/ripunzip
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@834a144ee995460fba8ed112a2fc961b36a5ec5a # v4.3.6
         with:
           name: ripunzip-${{ runner.os }}
           path: ripunzip-*

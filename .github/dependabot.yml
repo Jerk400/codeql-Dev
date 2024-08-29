@@ -40,3 +40,2388 @@ updates:
       - dependency-name: "*"
     reviewers:
       - "github/codeql-go"
+
+  - package-ecosystem: docker
+    directory: /.devcontainer/swift
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/autobuilder/Semmle.Autobuild.CSharp.Tests
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/autobuilder/Semmle.Autobuild.CSharp
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/autobuilder/Semmle.Autobuild.Cpp.Tests
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/autobuilder/Semmle.Autobuild.Cpp
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/autobuilder/Semmle.Autobuild.Shared
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/extractor/Semmle.Extraction.CSharp.DependencyFetching
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/extractor/Semmle.Extraction.CSharp.DependencyStubGenerator
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/extractor/Semmle.Extraction.CSharp.Driver
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/extractor/Semmle.Extraction.CSharp.Standalone
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/extractor/Semmle.Extraction.CSharp.StubGenerator
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/extractor/Semmle.Extraction.CSharp.Util
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/extractor/Semmle.Extraction.CSharp
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/extractor/Semmle.Extraction.Tests
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/extractor/Semmle.Extraction
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/extractor/Semmle.Util.Tests
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/extractor/Semmle.Util
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/all-platforms/autobuild
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/all-platforms/binlog/a
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/all-platforms/binlog/b
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/all-platforms/conditional_compilation
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/all-platforms/cshtml
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/all-platforms/cshtml_standalone
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/all-platforms/cshtml_standalone_disabled
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/all-platforms/cshtml_standalone_flowsteps
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/all-platforms/cshtml_standalone_net6
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/all-platforms/diag_dotnet_incompatible
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/all-platforms/diag_missing_xamarin_sdk
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/all-platforms/diag_recursive_generics
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/all-platforms/dotnet_build
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/all-platforms/dotnet_no_args_inject
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/all-platforms/dotnet_pack
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/all-platforms/dotnet_publish
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/all-platforms/dotnet_run
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/all-platforms/msbuild
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/all-platforms/source_generator
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/all-platforms/standalone
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/all-platforms/standalone_buildless_option
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/all-platforms/standalone_dependencies_net48
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/all-platforms/standalone_failed
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/all-platforms/standalone_resx
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/all-platforms/standalone_winforms
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/linux-only/compiler_args
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/linux-only/standalone_dependencies_non_utf8_filename
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/posix-only/dotnet_test
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/posix-only/dotnet_test_mstest
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/posix-only/standalone_dependencies
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/posix-only/standalone_dependencies_multi_project
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/posix-only/standalone_dependencies_multi_target
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/posix-only/standalone_dependencies_no_framework
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/posix-only/standalone_dependencies_nuget with_space
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/posix-only/standalone_dependencies_nuget
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/posix-only/standalone_dependencies_nuget_config_error/proj
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/posix-only/standalone_dependencies_nuget_config_error_timeout/proj
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/posix-only/standalone_dependencies_nuget_config_fallback/proj
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/posix-only/standalone_dependencies_nuget_no_sources
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/posix-only/standalone_dependencies_nuget_no_sources/proj
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/posix-only/standalone_dependencies_nuget_versions/d1
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/posix-only/standalone_dependencies_nuget_versions/d2
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/posix-only/warn_as_error
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/integration-tests/windows-only/standalone_dependencies
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/Amazon.Lambda.APIGatewayEvents/2.7.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/Amazon.Lambda.Core/2.2.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/Antlr3.Runtime/3.5.1
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/Dapper/2.1.24
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/EntityFramework/6.4.4
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/Iesi.Collections/4.0.4
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/Microsoft.CSharp/4.7.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/Microsoft.Extensions.DependencyInjection.Abstractions/6.0.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/Microsoft.Extensions.DependencyInjection/6.0.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/Microsoft.Extensions.Http/6.0.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/Microsoft.Extensions.Logging.Abstractions/6.0.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/Microsoft.Extensions.Logging/6.0.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/Microsoft.Extensions.Options/6.0.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/Microsoft.Extensions.Primitives/6.0.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/Microsoft.NETCore.Platforms/1.1.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/Microsoft.NETCore.Platforms/3.1.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/Microsoft.NETCore.Targets/1.1.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/Microsoft.Win32.Primitives/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/Microsoft.Win32.Registry/4.7.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/Microsoft.Win32.SystemEvents/6.0.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/NETStandard.Library/1.6.1
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/NHibernate/5.4.7
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/Newtonsoft.Json/13.0.3
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/Remotion.Linq.EagerFetching/2.2.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/Remotion.Linq/2.2.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/ServiceStack.Client/8.0.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/ServiceStack.Common/8.0.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/ServiceStack.Interfaces/8.0.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/ServiceStack.OrmLite.SqlServer/8.0.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/ServiceStack.OrmLite/8.0.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/ServiceStack.Text/8.0.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/ServiceStack/8.0.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/Stub.System.Data.SQLite.Core.NetStandard/1.0.118
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.AppContext/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Buffers/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.CodeDom/4.7.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Collections.Concurrent/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Collections.NonGeneric/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Collections/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.ComponentModel.Annotations/5.0.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.ComponentModel.Primitives/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.ComponentModel/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Configuration.ConfigurationManager/6.0.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Configuration.ConfigurationManager/8.0.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Console/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Data.OleDb/8.0.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Data.SQLite.Core/1.0.118
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Data.SQLite.EF6/1.0.118
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Data.SQLite/1.0.118
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Data.SqlClient/4.8.5
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Diagnostics.Debug/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Diagnostics.DiagnosticSource/6.0.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Diagnostics.EventLog/8.0.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Diagnostics.PerformanceCounter/8.0.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Diagnostics.Tools/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Diagnostics.Tracing/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Drawing.Common/6.0.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Dynamic.Runtime/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Globalization.Calendars/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Globalization.Extensions/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Globalization/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.IO.Compression.ZipFile/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.IO.Compression/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.IO.FileSystem.Primitives/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.IO.FileSystem/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.IO/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Linq.Expressions/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Linq.Queryable/4.0.1
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Linq/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Memory/4.5.5
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Net.Http/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Net.Primitives/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Net.Sockets/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.ObjectModel/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Reflection.Emit.ILGeneration/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Reflection.Emit.Lightweight/4.7.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Reflection.Emit/4.7.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Reflection.Extensions/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Reflection.Primitives/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Reflection.TypeExtensions/4.7.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Reflection/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Resources.ResourceManager/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Runtime.CompilerServices.Unsafe/6.0.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Runtime.Extensions/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Runtime.Handles/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Runtime.InteropServices.RuntimeInformation/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Runtime.InteropServices/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Runtime.Numerics/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Runtime.Serialization.Formatters/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Runtime.Serialization.Primitives/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Runtime/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Security.AccessControl/4.7.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Security.AccessControl/6.0.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Security.Cryptography.Algorithms/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Security.Cryptography.Cng/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Security.Cryptography.Csp/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Security.Cryptography.Encoding/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Security.Cryptography.OpenSsl/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Security.Cryptography.Primitives/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Security.Cryptography.ProtectedData/6.0.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Security.Cryptography.ProtectedData/8.0.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Security.Cryptography.X509Certificates/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Security.Permissions/6.0.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Security.Principal.Windows/4.7.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Text.Encoding.Extensions/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Text.Encoding/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Text.RegularExpressions/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Threading.Tasks.Extensions/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Threading.Tasks/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Threading.Timer/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Threading/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Windows.Extensions/6.0.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Xml.ReaderWriter/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Xml.XDocument/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/System.Xml.XmlDocument/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/_frameworks/Microsoft.AspNetCore.App
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/_frameworks/Microsoft.NETCore.App
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/runtime.fedora.23-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/runtime.fedora.24-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/runtime.native.System.Data.SqlClient.sni/4.7.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/runtime.native.System.IO.Compression/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/runtime.native.System.Net.Http/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/runtime.native.System.Security.Cryptography.Apple/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/runtime.native.System.Security.Cryptography.OpenSsl/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/runtime.native.System/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/runtime.opensuse.13.2-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/runtime.opensuse.42.1-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/runtime.osx.10.10-x64.runtime.native.System.Security.Cryptography.Apple/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/runtime.osx.10.10-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/runtime.rhel.7-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/runtime.ubuntu.14.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/runtime.ubuntu.16.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/runtime.ubuntu.16.10-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/runtime.win-arm64.runtime.native.System.Data.SqlClient.sni/4.4.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/runtime.win-x64.runtime.native.System.Data.SqlClient.sni/4.4.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /csharp/ql/test/resources/stubs/runtime.win-x86.runtime.native.System.Data.SqlClient.sni/4.4.0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/extractor-smoke-test
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/extractor
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/integration-tests/bazel-sample-1/src
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/integration-tests/bazel-sample-2/src
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/integration-tests/diagnostics/build-constraints-exclude-all-go-files/work
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/integration-tests/diagnostics/go-files-found-not-processed/work
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/integration-tests/diagnostics/go-files-found-not-processed/work/subdir
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/integration-tests/diagnostics/invalid-toolchain-version/src
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/integration-tests/diagnostics/newer-go-version-needed/work
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/integration-tests/diagnostics/package-not-found-with-go-mod/work
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/integration-tests/extract-vendor/src
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/integration-tests/glide-sample/work/vendor/golang.org/x/time
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/integration-tests/go-mod-sample/src
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/integration-tests/go-mod-without-version/src
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/integration-tests/go-version-bump/src
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/integration-tests/make-sample/src
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/integration-tests/mixed-layout/src/module
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/integration-tests/mixed-layout/src/workspace/subdir
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/integration-tests/ninja-sample/src
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/integration-tests/resolve-build-environment/newer-go-needed/src
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/integration-tests/single-go-mod-and-go-files-not-under-it/src/subdir
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/integration-tests/single-go-mod-in-root/src
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/integration-tests/single-go-mod-not-in-root/src/subdir
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/integration-tests/single-go-work-not-in-root/src/modules/subdir1
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/integration-tests/single-go-work-not-in-root/src/modules/subdir2
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/integration-tests/two-go-mods-nested-none-in-root/src/subdir0
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/integration-tests/two-go-mods-nested-none-in-root/src/subdir0/subdir1
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/integration-tests/two-go-mods-nested-one-in-root/src
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/integration-tests/two-go-mods-nested-one-in-root/src/subdir1
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/integration-tests/two-go-mods-not-nested/src/subdir1
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/integration-tests/two-go-mods-not-nested/src/subdir2
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/integration-tests/two-go-mods-one-failure/src/subdir1
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/integration-tests/two-go-mods-one-failure/src/subdir2
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/experimental/CWE-090
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/experimental/CWE-090/vendor/gopkg.in/ldap.v2/depstubber_reflect_635541987
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/experimental/CWE-1004
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/experimental/CWE-285
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/experimental/CWE-287
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/experimental/CWE-321-V2
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/experimental/CWE-400
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/experimental/CWE-522-DecompressionBombs
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/experimental/CWE-525
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/experimental/CWE-918
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/experimental/CWE-942
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/experimental/InconsistentCode
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/experimental/frameworks/CleverGo
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/experimental/frameworks/Fiber
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/extractor-tests/diagnostics
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/extractor-tests/go-mod-comments
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/extractor-tests/go1.17
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/Files
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/Function
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/GoModExpr
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/GoModExpr/squirrel
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/Packages
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/PrintAst
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/concepts/LoggerCall
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/dataflow/ExternalFlowVarArgs
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/dataflow/ExternalTaintFlow
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/dataflow/ExternalValueFlow
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/dataflow/ThreatModels
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/dataflow/VarArgsWithFunctionModels
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/dataflow/flowsources/local/environment
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/dependencies/codeql-go
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/dependencies/fabric-snaps
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/dependencies/hrm-profile-tool
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/dependencies/sweb
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/Afero
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/AwsLambda
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/Beego
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/BeegoOrm
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/Chi
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/CouchbaseV1
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/Echo
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/ElazarlGoproxy
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/Email
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/Encoding
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/EvanphxJsonPatch
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/Fasthttp
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/Fiber
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/Gin
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/GoKit
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/GoMicro
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/Gorestful
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/Iris
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/K8sIoApiCoreV1
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/K8sIoApimachineryPkgRuntime
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/K8sIoClientGo
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/Macaron
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/Mux
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/NoSQL
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/Protobuf
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/Revel
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/SQL/Gorm
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/SQL/Sqlx
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/SQL/bun
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/SQL/go-pg
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/SQL
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/SQL/gogf
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/SQL/gorqlite
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/Spew
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/StdlibTaintFlow
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/SystemCommandExecutors
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/Twirp
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/WebSocket
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/XNetHtml
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/Yaml
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/Zap
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/library-tests/semmle/go/frameworks/gqlgen
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/query-tests/InconsistentCode/WrappedErrorAlwaysNil
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/query-tests/Security/CWE-020/IncompleteHostnameRegexp
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/query-tests/Security/CWE-079
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/query-tests/Security/CWE-089
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/query-tests/Security/CWE-117
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/query-tests/Security/CWE-312
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/query-tests/Security/CWE-322
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/query-tests/Security/CWE-338/InsecureRandomness
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/query-tests/Security/CWE-347
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/query-tests/Security/CWE-352
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/query-tests/Security/CWE-640
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/query-tests/Security/CWE-643
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/query-tests/Security/CWE-798
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/query-tests/Security/CWE-918
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/query-tests/Summary
+    schedule:
+      interval: daily
+
+  - package-ecosystem: gomod
+    directory: /go/ql/test/query-tests/filters/ClassifyFiles
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/extractor/lib/typescript
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/extractor/tests/moduleTypes1/input
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/extractor/tests/moduleTypes2/input
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/extractor/tests/moduleTypes3/input
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/extractor/tests/node/input/f
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/ApiGraphs/argprops
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/ApiGraphs/async-await
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/ApiGraphs/bound-args
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/ApiGraphs/branching-flow
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/ApiGraphs/classes
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/ApiGraphs/ctor-arg
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/ApiGraphs/custom-entry-point
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/ApiGraphs/custom-use-steps
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/ApiGraphs/cyclic
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/ApiGraphs/dynamic-prop-read
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/ApiGraphs/imprecise-export
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/ApiGraphs/imprecision
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/ApiGraphs/namespaced-package
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/ApiGraphs/nested-property-export
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/ApiGraphs/nonlocal
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/ApiGraphs/partial-invoke
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/ApiGraphs/promises
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/ApiGraphs/promisify
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/ApiGraphs/property-read-from-argument
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/ApiGraphs/reexport
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/ApiGraphs/return-self
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/ApiGraphs/spread
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/ApiGraphs/tagged-template
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/ApiGraphs/typed
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/DependencyModuleImports/src/dir-with-complex-package-json
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/DependencyModuleImports/src/dir-with-package-json
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/DependencyModuleImports/src
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/ESLint/sub
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/EndpointNaming/pack1
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/EndpointNaming/pack10
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/EndpointNaming/pack11
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/EndpointNaming/pack12
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/EndpointNaming/pack2
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/EndpointNaming/pack3
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/EndpointNaming/pack4
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/EndpointNaming/pack5
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/EndpointNaming/pack6
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/EndpointNaming/pack7
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/EndpointNaming/pack8
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/EndpointNaming/pack9
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/Extend
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/HtmlSanitizers
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/JsonParsers
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/MalformedPackageJson/nullContents
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/ModelGeneration/aliases
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/ModelGeneration/long-access-path
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/ModelGeneration/reexport
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/ModelGeneration/return-this
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/ModelGeneration/root-function
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/ModelGeneration/semi-internal-class
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/ModelGeneration/subclass
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/ModuleTypes/commonjsPackage
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/ModuleTypes/modulePackage
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/NPM/src
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/PackageExports/absent_main
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/PackageExports/esmodules
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/PackageExports/lib1
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/PackageExports/lib1/sublib
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/Portals/src/bluebird
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/Portals/src/cyclic
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/Portals/src/m1
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/Portals/src/m2
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/Portals/src/m3
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/Portals/src/m4
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/Portals/src/m5
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/TypeScript/ImportOutDir/slashAndExtension
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/TypeScript/ImportOwnPackage/foo
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/dependencies/src
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/frameworks/Next
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/frameworks/SocketIO
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/frameworks/babel/root-import/tst2
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/library-tests/frameworks/babel/root-import/tst4
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/query-tests/Metrics/ExternalDependencies/src
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/query-tests/Metrics/ExternalDependencies/src/sub/subsub
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/query-tests/NodeJS/UnresolvableImport/src
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/query-tests/NodeJS/UnresolvableImport/src/sub/subsub
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/query-tests/NodeJS/UnusedDependency/src
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/query-tests/Security/CWE-078/UnsafeShellCommandConstruction/lib/subLib
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/query-tests/Security/CWE-078/UnsafeShellCommandConstruction/lib/subLib2
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/query-tests/Security/CWE-078/UnsafeShellCommandConstruction/lib/subLib3
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/query-tests/Security/CWE-078/UnsafeShellCommandConstruction/lib/subLib4
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/query-tests/Security/CWE-078/UnsafeShellCommandConstruction
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/query-tests/Security/CWE-079/DomBasedXss
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/query-tests/Security/CWE-079/ReflectedXss
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/query-tests/Security/CWE-079/UnsafeHtmlConstruction/lib
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/query-tests/Security/CWE-079/UnsafeHtmlConstruction/lib2
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/query-tests/Security/CWE-079/UnsafeHtmlConstruction
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/query-tests/Security/CWE-094/CodeInjection/lib
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/query-tests/Security/CWE-200/lib
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/query-tests/Security/CWE-200/subfolder
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/query-tests/Security/CWE-300
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/query-tests/Security/CWE-313
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/query-tests/Security/CWE-400/ReDoS/lib/moduleLib
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/query-tests/Security/CWE-400/ReDoS/lib/otherLib
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/query-tests/Security/CWE-400/ReDoS/lib/subLib4
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/query-tests/Security/CWE-400/ReDoS/lib/subLib5
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/query-tests/Security/CWE-400/ReDoS/lib/subLib6
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/query-tests/Security/CWE-400/ReDoS/lib/sublib
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/query-tests/Security/CWE-400/ReDoS
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/query-tests/Security/CWE-915/PrototypePollutingAssignment/otherlib
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/query-tests/Security/CWE-915/PrototypePollutingAssignment
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/query-tests/Security/CWE-915/PrototypePollutingAssignment/sublib
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/query-tests/Security/CWE-915/PrototypePollutingMergeCall/src-non-vulnerable-lodash
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/query-tests/Security/CWE-915/PrototypePollutingMergeCall/src-vulnerable-lodash
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /javascript/ql/test/query-tests/Summary/src
+    schedule:
+      interval: daily
+
+  - package-ecosystem: cargo
+    directory: /python/extractor/tsg-python
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /python/extractor/tsg-python/tsp
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /python/ql/test/query-tests/Security/CWE-943-NoSqlInjection/PoC
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /python/tools/recorded-call-graph-metrics
+    schedule:
+      interval: daily
+
+  - package-ecosystem: cargo
+    directory: /ql
+    schedule:
+      interval: daily
+
+  - package-ecosystem: npm
+    directory: /ql/buramu/tree-sitter-blame
+    schedule:
+      interval: daily
+
+  - package-ecosystem: cargo
+    directory: /ruby/extractor
+    schedule:
+      interval: daily
+
+  - package-ecosystem: bundler
+    directory: /ruby/ql/test/library-tests/ast/gems
+    schedule:
+      interval: daily
+
+  - package-ecosystem: bundler
+    directory: /ruby/ql/test/library-tests/frameworks/Twirp
+    schedule:
+      interval: daily
+
+  - package-ecosystem: bundler
+    directory: /ruby/ql/test/library-tests/frameworks/gemfile
+    schedule:
+      interval: daily
+
+  - package-ecosystem: bundler
+    directory: /ruby/ql/test/query-tests/security/cwe-300
+    schedule:
+      interval: daily
+
+  - package-ecosystem: maven
+    directory: /java/ql/integration-tests/all-platforms/java/buildless-dependency-different-repository
+    schedule:
+      interval: daily
+
+  - package-ecosystem: maven
+    directory: /java/ql/integration-tests/all-platforms/java/buildless-inherit-trust-store
+    schedule:
+      interval: daily
+
+  - package-ecosystem: maven
+    directory: /java/ql/integration-tests/all-platforms/java/buildless-maven-executable-war
+    schedule:
+      interval: daily
+
+  - package-ecosystem: maven
+    directory: /java/ql/integration-tests/all-platforms/java/buildless-maven-multimodule
+    schedule:
+      interval: daily
+
+  - package-ecosystem: maven
+    directory: /java/ql/integration-tests/all-platforms/java/buildless-maven-timeout
+    schedule:
+      interval: daily
+
+  - package-ecosystem: maven
+    directory: /java/ql/integration-tests/all-platforms/java/buildless-maven-tolerate-unavailable-dependency
+    schedule:
+      interval: daily
+
+  - package-ecosystem: maven
+    directory: /java/ql/integration-tests/all-platforms/java/buildless-maven
+    schedule:
+      interval: daily
+
+  - package-ecosystem: maven
+    directory: /java/ql/integration-tests/all-platforms/java/buildless-proxy-maven
+    schedule:
+      interval: daily
+
+  - package-ecosystem: maven
+    directory: /java/ql/integration-tests/all-platforms/java/buildless-sibling-projects/maven-project-1
+    schedule:
+      interval: daily
+
+  - package-ecosystem: maven
+    directory: /java/ql/integration-tests/all-platforms/java/buildless-sibling-projects/maven-project-2
+    schedule:
+      interval: daily
+
+  - package-ecosystem: maven
+    directory: /java/ql/integration-tests/all-platforms/java/buildless-snapshot-repository
+    schedule:
+      interval: daily
+
+  - package-ecosystem: maven
+    directory: /java/ql/integration-tests/all-platforms/java/diagnostics/compilation-error
+    schedule:
+      interval: daily
+
+  - package-ecosystem: maven
+    directory: /java/ql/integration-tests/all-platforms/java/diagnostics/dependency-error
+    schedule:
+      interval: daily
+
+  - package-ecosystem: maven
+    directory: /java/ql/integration-tests/all-platforms/java/diagnostics/maven-http-repository
+    schedule:
+      interval: daily
+
+  - package-ecosystem: maven
+    directory: /java/ql/integration-tests/all-platforms/java/diagnostics/multiple-candidate-builds/maven-project-1
+    schedule:
+      interval: daily
+
+  - package-ecosystem: maven
+    directory: /java/ql/integration-tests/all-platforms/java/diagnostics/multiple-candidate-builds/maven-project-2
+    schedule:
+      interval: daily
+
+  - package-ecosystem: maven
+    directory: /java/ql/integration-tests/all-platforms/java/java-web-jsp
+    schedule:
+      interval: daily
+
+  - package-ecosystem: maven
+    directory: /java/ql/integration-tests/all-platforms/java/maven-enforcer
+    schedule:
+      interval: daily
+
+  - package-ecosystem: maven
+    directory: /java/ql/integration-tests/all-platforms/java/maven-sample-extract-properties
+    schedule:
+      interval: daily
+
+  - package-ecosystem: maven
+    directory: /java/ql/integration-tests/all-platforms/java/maven-sample-large-xml-files
+    schedule:
+      interval: daily
+
+  - package-ecosystem: maven
+    directory: /java/ql/integration-tests/all-platforms/java/maven-sample-small-xml-files
+    schedule:
+      interval: daily
+
+  - package-ecosystem: maven
+    directory: /java/ql/integration-tests/all-platforms/java/maven-sample-xml-mode-all
+    schedule:
+      interval: daily
+
+  - package-ecosystem: maven
+    directory: /java/ql/integration-tests/all-platforms/java/maven-sample-xml-mode-byname
+    schedule:
+      interval: daily
+
+  - package-ecosystem: maven
+    directory: /java/ql/integration-tests/all-platforms/java/maven-sample-xml-mode-disabled
+    schedule:
+      interval: daily
+
+  - package-ecosystem: maven
+    directory: /java/ql/integration-tests/all-platforms/java/maven-sample-xml-mode-smart
+    schedule:
+      interval: daily
+
+  - package-ecosystem: maven
+    directory: /java/ql/integration-tests/all-platforms/java/maven-sample
+    schedule:
+      interval: daily
+
+  - package-ecosystem: maven
+    directory: /java/ql/integration-tests/all-platforms/java/maven-wrapper-script-only
+    schedule:
+      interval: daily
+
+  - package-ecosystem: maven
+    directory: /java/ql/integration-tests/all-platforms/java/maven-wrapper-source-only
+    schedule:
+      interval: daily
+
+  - package-ecosystem: maven
+    directory: /java/ql/integration-tests/all-platforms/java/maven-wrapper
+    schedule:
+      interval: daily
+
+  - package-ecosystem: maven
+    directory: /java/ql/test/experimental/query-tests/security/CWE-016
+    schedule:
+      interval: daily
+
+  - package-ecosystem: maven
+    directory: /java/ql/test/query-tests/maven-dependencies
+    schedule:
+      interval: daily
+
+  - package-ecosystem: maven
+    directory: /java/ql/test/utils/flowtestcasegenerator
+    schedule:
+      interval: daily

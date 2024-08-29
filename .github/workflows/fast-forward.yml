@@ -18,6 +18,11 @@ jobs:
     env:
       BRANCH_NAME: 'lgtm.com'
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde # v2.9.1
+        with:
+          egress-policy: audit
+
       - name: Validate chosen branch
         if: ${{ !startsWith(github.ref_name, 'codeql-cli-') }}
         shell: bash
@@ -26,7 +31,7 @@ jobs:
           exit 1
 
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
 
       - name: Git config
         shell: bash
