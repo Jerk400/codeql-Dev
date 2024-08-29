@@ -47,7 +47,12 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Harden Runner
+        uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde # v2.9.1
+        with:
+          egress-policy: audit
+
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
       - name: Install GNU tar
         if: runner.os == 'macOS'
         run: |
@@ -61,7 +66,7 @@ jobs:
       - uses: ./.github/actions/os-version
         id: os_version
       - name: Cache entire extractor
-        uses: actions/cache@v3
+        uses: actions/cache@e12d46a63a90f2fae62d114769bbf2a179198b5c # v3.3.3
         id: cache-extractor
         with:
           path: |
@@ -69,7 +74,7 @@ jobs:
             ruby/extractor/target/release/codeql-extractor-ruby.exe
             ruby/extractor/ql/lib/codeql/ruby/ast/internal/TreeSitter.qll
           key: ${{ runner.os }}-${{ steps.os_version.outputs.version }}-ruby-extractor-${{ hashFiles('ruby/extractor/rust-toolchain.toml', 'ruby/extractor/Cargo.lock') }}-${{ hashFiles('shared/tree-sitter-extractor') }}-${{ hashFiles('ruby/extractor/**/*.rs') }}
-      - uses: actions/cache@v3
+      - uses: actions/cache@e12d46a63a90f2fae62d114769bbf2a179198b5c # v3.3.3
         if: steps.cache-extractor.outputs.cache-hit != 'true'
         with:
           path: |
@@ -92,17 +97,17 @@ jobs:
       - name: Generate dbscheme
         if: ${{ matrix.os == 'ubuntu-latest' && steps.cache-extractor.outputs.cache-hit != 'true'}}
         run: extractor/target/release/codeql-extractor-ruby generate --dbscheme ql/lib/ruby.dbscheme --library ql/lib/codeql/ruby/ast/internal/TreeSitter.qll
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@a8a3f3ad30e3422c9c7b888a15615d19a852ae32 # v3.1.3
         if: ${{ matrix.os == 'ubuntu-latest' }}
         with:
           name: ruby.dbscheme
           path: ruby/ql/lib/ruby.dbscheme
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@a8a3f3ad30e3422c9c7b888a15615d19a852ae32 # v3.1.3
         if: ${{ matrix.os == 'ubuntu-latest' }}
         with:
           name: TreeSitter.qll
           path: ruby/ql/lib/codeql/ruby/ast/internal/TreeSitter.qll
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@a8a3f3ad30e3422c9c7b888a15615d19a852ae32 # v3.1.3
         with:
           name: extractor-${{ matrix.os }}
           path: |
@@ -113,7 +118,12 @@ jobs:
     if: github.repository_owner == 'github'
     runs-on: ubuntu-latest-xl
     steps:
-      - uses: actions/checkout@v4
+      - name: Harden Runner
+        uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde # v2.9.1
+        with:
+          egress-policy: audit
+
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
       - name: Fetch CodeQL
         uses: ./.github/actions/fetch-codeql
       - name: Cache compilation cache
@@ -134,7 +144,7 @@ jobs:
           PACK_FOLDER=$(readlink -f "$PACKS"/codeql/ruby-queries/*)
           codeql generate query-help --format=sarifv2.1.0 --output="${PACK_FOLDER}/rules.sarif" ql/src
           (cd ql/src; find queries \( -name '*.qhelp' -o -name '*.rb' -o -name '*.erb' \) -exec bash -c 'mkdir -p "'"${PACK_FOLDER}"'/$(dirname "{}")"' \; -exec cp "{}" "${PACK_FOLDER}/{}" \;)
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@a8a3f3ad30e3422c9c7b888a15615d19a852ae32 # v3.1.3
         with:
           name: codeql-ruby-queries
           path: |
@@ -145,20 +155,25 @@ jobs:
     runs-on: ubuntu-latest
     needs: [build, compile-queries]
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/download-artifact@v3
+      - name: Harden Runner
+        uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde # v2.9.1
+        with:
+          egress-policy: audit
+
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
         with:
           name: ruby.dbscheme
           path: ruby/ruby
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
         with:
           name: extractor-ubuntu-latest
           path: ruby/linux64
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
         with:
           name: extractor-windows-latest
           path: ruby/win64
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
         with:
           name: extractor-macos-latest
           path: ruby/osx64
@@ -171,12 +186,12 @@ jobs:
           cp win64/codeql-extractor-ruby.exe ruby/tools/win64/extractor.exe
           chmod +x ruby/tools/{linux64,osx64}/extractor
           zip -rq codeql-ruby.zip ruby
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@a8a3f3ad30e3422c9c7b888a15615d19a852ae32 # v3.1.3
         with:
           name: codeql-ruby-pack
           path: ruby/codeql-ruby.zip
           retention-days: 1
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
         with:
           name: codeql-ruby-queries
           path: ruby/qlpacks
@@ -188,7 +203,7 @@ jobs:
             ]
           }' > .codeqlmanifest.json
           zip -rq codeql-ruby-bundle.zip .codeqlmanifest.json ruby qlpacks
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@a8a3f3ad30e3422c9c7b888a15615d19a852ae32 # v3.1.3
         with:
           name: codeql-ruby-bundle
           path: ruby/codeql-ruby-bundle.zip
@@ -206,12 +221,17 @@ jobs:
     runs-on: ${{ matrix.os }}
     needs: [package]
     steps:
-      - uses: actions/checkout@v4
+      - name: Harden Runner
+        uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde # v2.9.1
+        with:
+          egress-policy: audit
+
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
       - name: Fetch CodeQL
         uses: ./.github/actions/fetch-codeql
 
       - name: Download Ruby bundle
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
         with:
           name: codeql-ruby-bundle
           path: ${{ runner.temp }}
