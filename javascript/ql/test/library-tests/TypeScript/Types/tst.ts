@@ -234,7 +234,7 @@ module TS45 {
   }
 }
 
-import * as Foo3 from "./something.json" assert { type: "json" };
+import * as Foo3 from "./something.json" with { type: "json" };
 var foo = Foo3.foo;
 
 module TS46 {
@@ -465,4 +465,47 @@ module TS50 {
     const foo = myConstIdFunction(["a", "b" ,"c"]);
     
     const b = foo[1]; // <- "b"
+}
+
+/////////////////
+
+module TS52 {
+    class SomeClass {
+        @((_target, _context) => {})
+        foo = 123;
+    }
+    
+    console.log(SomeClass[Symbol.metadata]); // <- has type DecoratorMetadataObject
+
+    // named and anonymous tuple elements. 
+    type Pair3<T> = [first: T, T];
+
+    console.log(["hello", "world"] satisfies Pair3<string>);
+}
+
+module TS54 {
+  function createStreetLight<C extends string>(colors: C[], defaultColor?: NoInfer<C>) {
+    return colors[0];
+  }
+
+  createStreetLight(["red", "yellow", "green"], "yellow");
+
+  const myObj = Object.groupBy([0, 1, 2, 3, 4, 5], (num, index) => {
+    return num % 2 === 0 ? "even": "odd";
+  });
+}
+
+module TS55 {
+  const strings = (["foo", 123])
+    .filter(s => typeof s === "string");
+
+  for (const str of strings) {
+    str.toLowerCase(); // <- string in 5.5, string | number in 5.4
+  }
+
+  function f1(obj: Record<string, unknown>, key: string) {
+    if (typeof obj[key] === "string") {
+      var str = obj[key].toUpperCase(); // Now okay, previously was error
+    }
+  }
 }

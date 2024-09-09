@@ -653,10 +653,11 @@ module TaintedPath {
   }
 
   /**
-   * A `templateUrl` member of an AngularJS directive.
+   * DEPRECATED. This is no longer seen as a path-injection sink. It is tentatively handled
+   * by the client-side URL redirection query for now.
    */
-  class AngularJSTemplateUrlSink extends Sink, DataFlow::ValueNode {
-    AngularJSTemplateUrlSink() { this = any(AngularJS::CustomDirective d).getMember("templateUrl") }
+  deprecated class AngularJSTemplateUrlSink extends DataFlow::ValueNode instanceof Sink {
+    AngularJSTemplateUrlSink() { none() }
   }
 
   /**
@@ -846,6 +847,22 @@ module TaintedPath {
       src = call.getInput() and
       dst = call and
       srclabel = dstlabel
+    )
+    or
+    exists(DataFlow::CallNode join |
+      // path.join() with spread argument
+      join = NodeJSLib::Path::moduleMember("join").getACall() and
+      src = join.getASpreadArgument() and
+      dst = join and
+      (
+        srclabel.(Label::PosixPath).canContainDotDotSlash()
+        or
+        srclabel instanceof Label::SplitPath
+      ) and
+      dstlabel.(Label::PosixPath).isNormalized() and
+      if isRelative(join.getArgument(0).getStringValue())
+      then dstlabel.(Label::PosixPath).isRelative()
+      else dstlabel.(Label::PosixPath).isAbsolute()
     )
   }
 

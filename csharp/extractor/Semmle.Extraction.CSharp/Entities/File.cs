@@ -1,8 +1,8 @@
-using Microsoft.CodeAnalysis;
-using Semmle.Util;
 using System;
 using System.IO;
 using System.Linq;
+using Microsoft.CodeAnalysis;
+using Semmle.Util;
 
 namespace Semmle.Extraction.CSharp.Entities
 {
@@ -34,7 +34,14 @@ namespace Semmle.Extraction.CSharp.Entities
                         lineCounts.Total++;
 
                     trapFile.numlines(this, lineCounts);
-                    Context.TrapWriter.Archive(originalPath, TransformedPath, text.Encoding ?? System.Text.Encoding.Default);
+                    if (BinaryLogExtractionContext.GetAdjustedPath(Context.ExtractionContext, originalPath) is not null)
+                    {
+                        Context.TrapWriter.ArchiveContent(rawText, TransformedPath);
+                    }
+                    else
+                    {
+                        Context.TrapWriter.Archive(originalPath, TransformedPath, text.Encoding ?? System.Text.Encoding.Default);
+                    }
                 }
             }
             else if (IsPossiblyTextFile())
@@ -61,7 +68,7 @@ namespace Semmle.Extraction.CSharp.Entities
                 }
             }
 
-            trapFile.file_extraction_mode(this, Context.Extractor.Mode);
+            trapFile.file_extraction_mode(this, Context.ExtractionContext.Mode);
         }
 
         private bool IsPossiblyTextFile()

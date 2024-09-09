@@ -26,14 +26,12 @@ module LogInjection {
   abstract class Sanitizer extends DataFlow::Node { }
 
   /**
-   * DEPRECATED: Use `Sanitizer` instead.
-   *
-   * A sanitizer guard for log injection vulnerabilities.
+   * DEPRECATED: Use `ThreatModelFlowSource` or `Source` instead.
    */
-  abstract deprecated class SanitizerGuard extends DataFlow::BarrierGuard { }
+  deprecated class UntrustedFlowAsSource = ThreatModelFlowAsSource;
 
   /** A source of untrusted data, considered as a taint source for log injection. */
-  class UntrustedFlowAsSource extends Source instanceof UntrustedFlowSource { }
+  private class ThreatModelFlowAsSource extends Source instanceof ThreatModelFlowSource { }
 
   /** An argument to a logging mechanism. */
   class LoggerSink extends Sink {

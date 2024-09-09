@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Diagnostics.CodeAnalysis;
 using Semmle.Util;
 
 namespace Semmle.Extraction
@@ -76,8 +76,20 @@ namespace Semmle.Extraction
                             throw new InvalidFilePatternException(pattern, "'**' preceeded by non-`/` character.");
                         if (HasCharAt(i + 2, c => c != '/'))
                             throw new InvalidFilePatternException(pattern, "'**' succeeded by non-`/` character");
-                        sb.Append(".*");
-                        i += 2;
+
+                        if (i + 2 < pattern.Length)
+                        {
+                            // Processing .../**/...
+                            //                ^^^
+                            sb.Append("(.*/|)");
+                            i += 3;
+                        }
+                        else
+                        {
+                            // Processing .../** at the end of the pattern.
+                            // There's no need to add .* because it's anyways added outside the loop.
+                            break;
+                        }
                     }
                     else
                     {

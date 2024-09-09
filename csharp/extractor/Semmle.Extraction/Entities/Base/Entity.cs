@@ -1,6 +1,6 @@
-using Microsoft.CodeAnalysis;
 using System;
 using System.IO;
+using Microsoft.CodeAnalysis;
 
 namespace Semmle.Extraction
 {
@@ -28,7 +28,7 @@ namespace Semmle.Extraction
 
         public abstract TrapStackBehaviour TrapStackBehaviour { get; }
 
-        public void DefineLabel(TextWriter trapFile, Extractor extractor)
+        public void DefineLabel(TextWriter trapFile)
         {
             trapFile.WriteLabel(this);
             trapFile.Write("=");
@@ -40,7 +40,7 @@ namespace Semmle.Extraction
             catch (Exception ex)  // lgtm[cs/catch-of-all-exceptions]
             {
                 trapFile.WriteLine("\"");
-                extractor.Message(new Message($"Unhandled exception generating id: {ex.Message}", ToString() ?? "", null, ex.StackTrace));
+                Context.ExtractionContext.Message(new Message($"Unhandled exception generating id: {ex.Message}", ToString() ?? "", null, ex.StackTrace));
             }
             trapFile.WriteLine();
         }

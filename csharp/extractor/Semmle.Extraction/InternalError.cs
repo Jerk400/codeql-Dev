@@ -1,6 +1,6 @@
-using Microsoft.CodeAnalysis;
 using System;
 using System.Linq;
+using Microsoft.CodeAnalysis;
 
 namespace Semmle.Extraction
 {
@@ -13,7 +13,7 @@ namespace Semmle.Extraction
         {
             Text = msg;
             EntityText = symbol.ToString() ?? "";
-            Location = symbol.Locations.FirstOrDefault();
+            Location = symbol.Locations.BestOrDefault();
         }
 
         public InternalError(SyntaxNode node, string msg)

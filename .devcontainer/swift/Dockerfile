@@ -1,7 +1,7 @@
 # See here for image contents: https://github.com/microsoft/vscode-dev-containers/tree/v0.236.0/containers/cpp/.devcontainer/base.Dockerfile
 
 # [Choice] Debian / Ubuntu version (use Debian 11, Ubuntu 18.04/22.04 on local arm64/Apple Silicon): debian-11, debian-10, ubuntu-22.04, ubuntu-20.04, ubuntu-18.04
-FROM mcr.microsoft.com/vscode/devcontainers/cpp:0-ubuntu-22.04
+FROM mcr.microsoft.com/vscode/devcontainers/cpp:0-ubuntu-22.04@sha256:9e682f0ffc39db4fde38b0753a2077e632b7de921130435f56ba0bfc921ac63a
 
 USER root
 ADD root.sh /tmp/root.sh

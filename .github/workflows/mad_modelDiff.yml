@@ -12,6 +12,7 @@ on:
       - main
     paths:
       - "java/ql/src/utils/modelgenerator/**/*.*"
+      - "misc/scripts/models-as-data/*.*"
       - ".github/workflows/mad_modelDiff.yml"
 
 permissions:
@@ -26,13 +27,18 @@ jobs:
       matrix:
         slug: ${{fromJson(github.event.inputs.projects || '["apache/commons-codec", "apache/commons-io", "apache/commons-beanutils", "apache/commons-logging", "apache/commons-fileupload", "apache/commons-lang", "apache/commons-validator", "apache/commons-csv", "apache/dubbo"]' )}}
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde # v2.9.1
+        with:
+          egress-policy: audit
+
       - name: Clone github/codeql from PR
-        uses: actions/checkout@v3
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
         if: github.event.pull_request
         with:
           path: codeql-pr
       - name: Clone github/codeql from main
-        uses: actions/checkout@v3
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
         with:
           path: codeql-main
           ref: main
@@ -61,8 +67,9 @@ jobs:
             DATABASE=$2
             cd codeql-$QL_VARIANT
             SHORTNAME=`basename $DATABASE`
-            python java/ql/src/utils/modelgenerator/GenerateFlowModel.py --with-summaries --with-sinks $DATABASE ${SHORTNAME}.temp.model.yml
-            mv java/ql/lib/ext/generated/${SHORTNAME}.temp.model.yml $MODELS/${SHORTNAME}Generated_${QL_VARIANT}.model.yml
+            python java/ql/src/utils/modelgenerator/GenerateFlowModel.py --with-summaries --with-sinks $DATABASE $SHORTNAME/$QL_VARIANT
+            mkdir -p $MODELS/$SHORTNAME
+            mv java/ql/lib/ext/generated/$SHORTNAME/$QL_VARIANT $MODELS/$SHORTNAME
             cd ..
           }
 
@@ -85,18 +92,18 @@ jobs:
           set -x
           MODELS=`pwd`/tmp-models
           ls -1 tmp-models/
-          for m in $MODELS/*_main.model.yml ; do
+          for m in $MODELS/*/main/*.model.yml ; do
             t="${m/main/"pr"}"
             basename=`basename $m`
-            name="diff_${basename/_main.model.yml/""}"
+            name="diff_${basename/.model.yml/""}"
             (diff -w -u $m $t | diff2html -i stdin -F $MODELS/$name.html) || true
           done
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@a8a3f3ad30e3422c9c7b888a15615d19a852ae32 # v3.1.3
         with:
           name: models
-          path: tmp-models/*.model.yml
+          path: tmp-models/**/**/*.model.yml
           retention-days: 20
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@a8a3f3ad30e3422c9c7b888a15615d19a852ae32 # v3.1.3
         with:
           name: diffs
           path: tmp-models/*.html

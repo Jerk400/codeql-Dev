@@ -17,19 +17,27 @@ on:
 env:
   CARGO_TERM_COLOR: always
 
+permissions:
+  contents: read
+
 jobs:
   qltest:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Harden Runner
+        uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde # v2.9.1
+        with:
+          egress-policy: audit
+
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
       - name: Find codeql
         id: find-codeql
-        uses: github/codeql-action/init@v2
+        uses: github/codeql-action/init@b43ac1c23f7541b1939bccfc4255db76ae3cd3dd # main
         with:
           languages: javascript # does not matter
       - uses: ./.github/actions/os-version
         id: os_version
-      - uses: actions/cache@v3
+      - uses: actions/cache@e12d46a63a90f2fae62d114769bbf2a179198b5c # v3.3.3
         with:
           path: |
             ~/.cargo/registry
@@ -46,35 +54,40 @@ jobs:
       - name: Cache compilation cache
         id: query-cache
         uses: ./.github/actions/cache-query-compilation
-        with: 
+        with:
           key: ql-for-ql-tests
       - name: Run QL tests
         run: |
-          "${CODEQL}" test run --check-databases --check-unused-labels --check-repeated-labels --check-redefined-labels --check-use-before-definition --search-path "${{ github.workspace }}/ql/extractor-pack" --consistency-queries ql/ql/consistency-queries --compilation-cache "${{ steps.query-cache.outputs.cache-dir }}" ql/ql/test
+          "${CODEQL}" test run --check-databases --check-unused-labels --check-repeated-labels --check-redefined-labels --check-use-before-definition --search-path "${{ github.workspace }}" --consistency-queries ql/ql/consistency-queries --compilation-cache "${{ steps.query-cache.outputs.cache-dir }}" ql/ql/test
         env:
           CODEQL: ${{ steps.find-codeql.outputs.codeql-path }}
 
-  other-os: 
+  other-os:
     strategy:
       matrix:
         os: [macos-latest, windows-latest]
     needs: [qltest]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v3
-      - name: Install GNU tar 
+      - name: Harden Runner
+        uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde # v2.9.1
+        with:
+          egress-policy: audit
+
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      - name: Install GNU tar
         if: runner.os == 'macOS'
         run: |
           brew install gnu-tar
           echo "/usr/local/opt/gnu-tar/libexec/gnubin" >> $GITHUB_PATH
       - name: Find codeql
         id: find-codeql
-        uses: github/codeql-action/init@v2
+        uses: github/codeql-action/init@b43ac1c23f7541b1939bccfc4255db76ae3cd3dd # main
         with:
           languages: javascript # does not matter
       - uses: ./.github/actions/os-version
         id: os_version
-      - uses: actions/cache@v3
+      - uses: actions/cache@e12d46a63a90f2fae62d114769bbf2a179198b5c # v3.3.3
         with:
           path: |
             ~/.cargo/registry
@@ -97,7 +110,7 @@ jobs:
       - name: Run a single QL tests - Unix
         if: runner.os != 'Windows'
         run: |
-          "${CODEQL}" test run --check-databases --search-path "${{ github.workspace }}/ql/extractor-pack" ql/ql/test/queries/style/DeadCode/DeadCode.qlref
+          "${CODEQL}" test run --check-databases --search-path "${{ github.workspace }}" ql/ql/test/queries/style/DeadCode/DeadCode.qlref
         env:
           CODEQL: ${{ steps.find-codeql.outputs.codeql-path }}
       - name: Run a single QL tests - Windows
@@ -105,5 +118,4 @@ jobs:
         shell: pwsh
         run: |
           $Env:PATH += ";$(dirname ${{ steps.find-codeql.outputs.codeql-path }})"
-          codeql test run --check-databases --search-path "${{ github.workspace }}/ql/extractor-pack" ql/ql/test/queries/style/DeadCode/DeadCode.qlref
-      
+          codeql test run --check-databases --search-path "${{ github.workspace }}" ql/ql/test/queries/style/DeadCode/DeadCode.qlref

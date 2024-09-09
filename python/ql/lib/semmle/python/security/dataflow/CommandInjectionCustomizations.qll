@@ -9,6 +9,7 @@ private import semmle.python.dataflow.new.DataFlow
 private import semmle.python.Concepts
 private import semmle.python.dataflow.new.RemoteFlowSources
 private import semmle.python.dataflow.new.BarrierGuards
+private import semmle.python.frameworks.data.ModelsAsData
 
 /**
  * Provides default sources, sinks and sanitizers for detecting
@@ -30,13 +31,6 @@ module CommandInjection {
    * A sanitizer for "command injection" vulnerabilities.
    */
   abstract class Sanitizer extends DataFlow::Node { }
-
-  /**
-   * DEPRECATED: Use `Sanitizer` instead.
-   *
-   * A sanitizer guard for "command injection" vulnerabilities.
-   */
-  abstract deprecated class SanitizerGuard extends DataFlow::BarrierGuard { }
 
   /**
    * A source of remote user input, considered as a flow source.
@@ -83,6 +77,10 @@ module CommandInjection {
           "os", "subprocess", "platform", "popen2"
         ]
     }
+  }
+
+  private class SinkFromModel extends Sink {
+    SinkFromModel() { this = ModelOutput::getASinkNode("command-injection").asSink() }
   }
 
   /**

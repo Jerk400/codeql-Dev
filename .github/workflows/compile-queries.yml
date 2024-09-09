@@ -8,12 +8,21 @@ on:
       - "codeql-cli-*"
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   compile-queries:
+    if: github.repository_owner == 'github'
     runs-on: ubuntu-latest-xl
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Harden Runner
+        uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde # v2.9.1
+        with:
+          egress-policy: audit
+
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
       - name: Setup CodeQL
         uses: ./.github/actions/fetch-codeql
         with:
@@ -24,14 +33,14 @@ jobs:
         with: 
           key: all-queries
       - name: check formatting
-        run: find */ql -type f \( -name "*.qll" -o -name "*.ql" \) -print0 | xargs -0 -n 3000 -P 10 codeql query format -q --check-only
+        run: find shared */ql -type f \( -name "*.qll" -o -name "*.ql" \) -print0 | xargs -0 -n 3000 -P 10 codeql query format -q --check-only
       - name: compile queries - check-only
         # run with --check-only if running in a PR (github.sha != main)
         if : ${{ github.event_name == 'pull_request' }}
         shell: bash
-        run: codeql query compile -q -j0 */ql/{src,examples} --keep-going --warnings=error --check-only --compilation-cache "${{ steps.query-cache.outputs.cache-dir }}"
+        run: codeql query compile -q -j0 */ql/{src,examples} --keep-going --warnings=error --check-only --compilation-cache "${{ steps.query-cache.outputs.cache-dir }}" --compilation-cache-size=500
       - name: compile queries - full
         # do full compile if running on main - this populates the cache
         if : ${{ github.event_name != 'pull_request' }}
         shell: bash
-        run: codeql query compile -q -j0 */ql/{src,examples} --keep-going --warnings=error --compilation-cache "${{ steps.query-cache.outputs.cache-dir }}"
+        run: codeql query compile -q -j0 */ql/{src,examples} --keep-going --warnings=error --compilation-cache "${{ steps.query-cache.outputs.cache-dir }}" --compilation-cache-size=500

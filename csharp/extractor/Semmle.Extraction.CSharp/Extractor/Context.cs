@@ -1,8 +1,9 @@
-using Microsoft.CodeAnalysis;
 using System;
-using System.Diagnostics.CodeAnalysis;
-using Semmle.Extraction.Entities;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.IO;
+using Microsoft.CodeAnalysis;
+using Semmle.Extraction.Entities;
 
 namespace Semmle.Extraction.CSharp
 {
@@ -67,7 +68,7 @@ namespace Semmle.Extraction.CSharp
             lambdaParameterCache[syntax] = param;
         }
 
-        private readonly Dictionary<SyntaxNode, IParameterSymbol> lambdaParameterCache = new Dictionary<SyntaxNode, IParameterSymbol>();
+        private readonly Dictionary<SyntaxNode, IParameterSymbol> lambdaParameterCache = [];
 
         /// <summary>
         /// The current compilation unit.
@@ -76,8 +77,8 @@ namespace Semmle.Extraction.CSharp
 
         internal CommentProcessor CommentGenerator { get; } = new CommentProcessor();
 
-        public Context(Extraction.Extractor e, Compilation c, TrapWriter trapWriter, IExtractionScope scope, bool addAssemblyTrapPrefix)
-            : base(e, trapWriter, addAssemblyTrapPrefix)
+        public Context(ExtractionContext extractionContext, Compilation c, TrapWriter trapWriter, IExtractionScope scope, bool addAssemblyTrapPrefix)
+            : base(extractionContext, trapWriter, addAssemblyTrapPrefix)
         {
             Compilation = c;
             this.scope = scope;
@@ -177,6 +178,26 @@ namespace Semmle.Extraction.CSharp
 
             extractedGenerics.Add(entity.Label);
             return true;
+        }
+
+        public string TryAdjustRelativeMappedFilePath(string mappedToPath, string mappedFromPath)
+        {
+            if (!Path.IsPathRooted(mappedToPath))
+            {
+                try
+                {
+                    var fullPath = Path.GetFullPath(Path.Combine(Path.GetDirectoryName(mappedFromPath)!, mappedToPath));
+                    ExtractionContext.Logger.LogDebug($"Found relative path in line mapping: '{mappedToPath}', interpreting it as '{fullPath}'");
+
+                    mappedToPath = fullPath;
+                }
+                catch (Exception e)
+                {
+                    ExtractionContext.Logger.LogDebug($"Failed to compute absolute path for relative path in line mapping: '{mappedToPath}': {e}");
+                }
+            }
+
+            return mappedToPath;
         }
     }
 }
