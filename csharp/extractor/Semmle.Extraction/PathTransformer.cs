@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Diagnostics.CodeAnalysis;
+using System.IO;
 using Semmle.Util;
 using Semmle.Util.Logging;
 
@@ -92,7 +92,7 @@ namespace Semmle.Extraction
                 {
                     var ret = value;
                     if (ret.Length >= 2 && ret[1] == ':' && Char.IsLower(ret[0]))
-                        ret = Char.ToUpper(ret[0]) + "_" + ret.Substring(2);
+                        ret = $"{char.ToUpper(ret[0])}_{ret[2..]}";
                     return ret.Replace('\\', '/').Replace(":", "_");
                 }
             }

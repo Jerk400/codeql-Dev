@@ -17,6 +17,9 @@ on:
       - .github/workflows/ruby-dataset-measure.yml
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   measure:
     env:
@@ -27,21 +30,26 @@ jobs:
         repo: [rails/rails, discourse/discourse, spree/spree, ruby/ruby]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Harden Runner
+        uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde # v2.9.1
+        with:
+          egress-policy: audit
+
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
 
       - uses: ./.github/actions/fetch-codeql
 
       - uses: ./ruby/actions/create-extractor-pack
 
       - name: Checkout ${{ matrix.repo }}
-        uses: actions/checkout@v3
+        uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
         with:
           repository: ${{ matrix.repo }}
           path: ${{ github.workspace }}/repo
       - name: Create database
         run: |
           codeql database create \
-            --search-path "${{ github.workspace }}/ruby/extractor-pack" \
+            --search-path "${{ github.workspace }}" \
             --threads 4 \
             --language ruby --source-root "${{ github.workspace }}/repo" \
             "${{ runner.temp }}/database"
@@ -49,7 +57,7 @@ jobs:
         run: |
           mkdir -p "stats/${{ matrix.repo }}"
           codeql dataset measure --threads 4 --output "stats/${{ matrix.repo }}/stats.xml" "${{ runner.temp }}/database/db-ruby"
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@a8a3f3ad30e3422c9c7b888a15615d19a852ae32 # v3.1.3
         with:
           name: measurements
           path: stats
@@ -59,15 +67,20 @@ jobs:
     runs-on: ubuntu-latest
     needs: measure
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/download-artifact@v3
+      - name: Harden Runner
+        uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde # v2.9.1
+        with:
+          egress-policy: audit
+
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      - uses: actions/download-artifact@9bc31d5ccc31df68ecc42ccf4149144866c47d8a # v3.0.2
         with:
           name: measurements
           path: stats
       - run: |
           python -m pip install --user lxml
           find stats -name 'stats.xml' | sort | xargs python ruby/scripts/merge_stats.py --output ruby/ql/lib/ruby.dbscheme.stats --normalise ruby_tokeninfo
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@a8a3f3ad30e3422c9c7b888a15615d19a852ae32 # v3.1.3
         with:
           name: ruby.dbscheme.stats
           path: ruby/ql/lib/ruby.dbscheme.stats

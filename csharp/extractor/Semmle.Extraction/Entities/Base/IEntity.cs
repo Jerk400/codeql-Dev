@@ -1,5 +1,5 @@
-using Microsoft.CodeAnalysis;
 using System.IO;
+using Microsoft.CodeAnalysis;
 
 namespace Semmle.Extraction
 {
@@ -48,6 +48,6 @@ namespace Semmle.Extraction
         /// </summary>
         TrapStackBehaviour TrapStackBehaviour { get; }
 
-        void DefineLabel(TextWriter trapFile, Extractor extractor);
+        void DefineLabel(TextWriter trapFile);
     }
 }

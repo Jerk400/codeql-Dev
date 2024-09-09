@@ -1,10 +1,10 @@
-using Microsoft.CodeAnalysis;
-using Microsoft.CodeAnalysis.CSharp;
-using Semmle.Extraction.CSharp.Populators;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
+using Semmle.Extraction.CSharp.Populators;
 
 namespace Semmle.Extraction.CSharp.Entities
 {
@@ -36,7 +36,7 @@ namespace Semmle.Extraction.CSharp.Entities
             if (Symbol.TypeKind == TypeKind.Error)
             {
                 UnknownType.Create(Context); // make sure this exists so we can use it in `TypeRef::getReferencedType`
-                Context.Extractor.MissingType(Symbol.ToString()!, Context.FromSource);
+                Context.ExtractionContext.MissingType(Symbol.ToString()!, Context.FromSource);
                 return;
             }
 
@@ -108,7 +108,7 @@ namespace Semmle.Extraction.CSharp.Entities
                 foreach (var l in GetLocations(Symbol))
                     yield return Context.CreateLocation(l);
 
-                if (!Context.Extractor.Mode.HasFlag(ExtractorMode.Standalone) && Symbol.DeclaringSyntaxReferences.Any())
+                if (Symbol.DeclaringSyntaxReferences.Any())
                     yield return Assembly.CreateOutputAssembly(Context);
             }
         }
@@ -124,7 +124,7 @@ namespace Semmle.Extraction.CSharp.Entities
                 );
         }
 
-        public override Microsoft.CodeAnalysis.Location? ReportingLocation => GetLocations(Symbol).FirstOrDefault();
+        public override Microsoft.CodeAnalysis.Location? ReportingLocation => GetLocations(Symbol).BestOrDefault();
 
         private bool IsAnonymousType() => Symbol.IsAnonymousType || Symbol.Name.Contains("__AnonymousType");
 

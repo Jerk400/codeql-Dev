@@ -1,11 +1,11 @@
-using Microsoft.CodeAnalysis;
-using Semmle.Extraction.Entities;
-using Semmle.Util.Logging;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
+using Microsoft.CodeAnalysis;
+using Semmle.Util.Logging;
+using Semmle.Extraction.Entities;
 
 namespace Semmle.Extraction
 {
@@ -18,7 +18,7 @@ namespace Semmle.Extraction
         /// <summary>
         /// Access various extraction functions, e.g. logger, trap writer.
         /// </summary>
-        public Extractor Extractor { get; }
+        public ExtractionContext ExtractionContext { get; }
 
         /// <summary>
         /// Access to the trap file.
@@ -37,7 +37,7 @@ namespace Semmle.Extraction
         // A recursion guard against writing to the trap file whilst writing an id to the trap file.
         private bool writingLabel = false;
 
-        private readonly Queue<IEntity> labelQueue = new();
+        private readonly Queue<IEntity> labelQueue = [];
 
         protected void DefineLabel(IEntity entity)
         {
@@ -51,7 +51,7 @@ namespace Semmle.Extraction
                 try
                 {
                     writingLabel = true;
-                    entity.DefineLabel(TrapWriter.Writer, Extractor);
+                    entity.DefineLabel(TrapWriter.Writer);
                 }
                 finally
                 {
@@ -153,9 +153,9 @@ namespace Semmle.Extraction
         /// Enqueue the given action to be performed later.
         /// </summary>
         /// <param name="toRun">The action to run.</param>
-        public void PopulateLater(Action a)
+        public void PopulateLater(Action a, bool preserveDuplicationKey = true)
         {
-            var key = GetCurrentTagStackKey();
+            var key = preserveDuplicationKey ? GetCurrentTagStackKey() : null;
             if (key is not null)
             {
                 // If we are currently executing with a duplication guard, then the same
@@ -190,9 +190,9 @@ namespace Semmle.Extraction
             }
         }
 
-        protected Context(Extractor extractor, TrapWriter trapWriter, bool shouldAddAssemblyTrapPrefix = false)
+        protected Context(ExtractionContext extractionContext, TrapWriter trapWriter, bool shouldAddAssemblyTrapPrefix = false)
         {
-            Extractor = extractor;
+            ExtractionContext = extractionContext;
             TrapWriter = trapWriter;
             ShouldAddAssemblyTrapPrefix = shouldAddAssemblyTrapPrefix;
         }
@@ -203,7 +203,7 @@ namespace Semmle.Extraction
         private void EnterScope()
         {
             if (currentRecursiveDepth >= maxRecursiveDepth)
-                throw new StackOverflowException(string.Format("Maximum nesting depth of {0} exceeded", maxRecursiveDepth));
+                throw new StackOverflowException($"Maximum nesting depth of {maxRecursiveDepth} exceeded");
             ++currentRecursiveDepth;
         }
 
@@ -274,28 +274,36 @@ namespace Semmle.Extraction
 
             bool duplicationGuard, deferred;
 
-            switch (entity.TrapStackBehaviour)
+            if (ExtractionContext.Mode is ExtractorMode.Standalone)
             {
-                case TrapStackBehaviour.NeedsLabel:
-                    if (!tagStack.Any())
-                        ExtractionError("TagStack unexpectedly empty", optionalSymbol, entity);
-                    duplicationGuard = false;
-                    deferred = false;
-                    break;
-                case TrapStackBehaviour.NoLabel:
-                    duplicationGuard = false;
-                    deferred = tagStack.Any();
-                    break;
-                case TrapStackBehaviour.OptionalLabel:
-                    duplicationGuard = false;
-                    deferred = false;
-                    break;
-                case TrapStackBehaviour.PushesLabel:
-                    duplicationGuard = true;
-                    deferred = duplicationGuard && tagStack.Any();
-                    break;
-                default:
-                    throw new InternalError("Unexpected TrapStackBehaviour");
+                duplicationGuard = false;
+                deferred = false;
+            }
+            else
+            {
+                switch (entity.TrapStackBehaviour)
+                {
+                    case TrapStackBehaviour.NeedsLabel:
+                        if (!tagStack.Any())
+                            ExtractionError("TagStack unexpectedly empty", optionalSymbol, entity);
+                        duplicationGuard = false;
+                        deferred = false;
+                        break;
+                    case TrapStackBehaviour.NoLabel:
+                        duplicationGuard = false;
+                        deferred = tagStack.Any();
+                        break;
+                    case TrapStackBehaviour.OptionalLabel:
+                        duplicationGuard = false;
+                        deferred = false;
+                        break;
+                    case TrapStackBehaviour.PushesLabel:
+                        duplicationGuard = true;
+                        deferred = duplicationGuard && tagStack.Any();
+                        break;
+                    default:
+                        throw new InternalError("Unexpected TrapStackBehaviour");
+                }
             }
 
             var a = duplicationGuard && IsEntityDuplicationGuarded(entity, out var loc)
@@ -371,7 +379,7 @@ namespace Semmle.Extraction
         {
             if (!(optionalSymbol is null))
             {
-                ExtractionError(message, optionalSymbol.ToDisplayString(), CreateLocation(optionalSymbol.Locations.FirstOrDefault()));
+                ExtractionError(message, optionalSymbol.ToDisplayString(), CreateLocation(optionalSymbol.Locations.BestOrDefault()));
             }
             else if (!(optionalEntity is null))
             {
@@ -390,7 +398,7 @@ namespace Semmle.Extraction
         private void ExtractionError(Message msg)
         {
             new ExtractionMessage(this, msg);
-            Extractor.Message(msg);
+            ExtractionContext.Message(msg);
         }
 
         private void ExtractionError(InternalError error)
@@ -400,7 +408,7 @@ namespace Semmle.Extraction
 
         private void ReportError(InternalError error)
         {
-            if (!Extractor.Mode.HasFlag(ExtractorMode.Standalone))
+            if (!ExtractionContext.Mode.HasFlag(ExtractorMode.Standalone))
                 throw error;
 
             ExtractionError(error);
