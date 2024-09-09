@@ -14,8 +14,6 @@
     
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jetty-version>9.4.55.v20240627</jetty-version>
-
         <!--<sonar.language></sonar.language>-->
     </properties>
 
@@ -69,7 +67,6 @@
         <dependency>
             <groupId>org.owasp.encoder</groupId>
             <artifactId>encoder</artifactId>
-            <version>1.3.0</version>
         </dependency>
 
         <dependency>
